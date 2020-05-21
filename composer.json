@@ -1,0 +1,20 @@
+{
+    "name": "guilhermefalves/lumen-base-crud",
+    "description": "The basic CRUD for Lumen MicroFramework",
+    "authors": [
+        {
+            "name": "Guilherme Alves",
+            "email": "guihalves20@gmail.com"
+        }
+    ],
+    "type": "package",
+    "require": {
+        "php": "^7.4",
+        "laravel/lumen-framework": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LumenBaseCRUD\\": "src/"
+        }
+    }
+}

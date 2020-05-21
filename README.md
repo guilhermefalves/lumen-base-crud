@@ -48,3 +48,7 @@ E funções que recebem o objeto e são executadas após dos respectivos método
 ## Configuration
 O pacote utiliza algumas configurações, são elas:
 * database.pageSize - tamanho de cada página, utilizado nas funções show (default: 10)
+
+---
+## License
+[License](https://github.com/guilhermefalves/lumen-base-crud/blob/master/LICENSE.md)

@@ -1,6 +1,7 @@
 {
     "name": "guilhermefalves/lumen-base-crud",
     "description": "The basic CRUD for Lumen MicroFramework",
+    "license": "MIT",
     "authors": [
         {
             "name": "Guilherme Alves",

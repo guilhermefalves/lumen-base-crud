@@ -41,6 +41,16 @@ class Controller extends LumenController
     protected array $putRules = [];
 
     /**
+     * Construtor básico
+     * Define as regras de putRules como as mesmas de postRules, podendo ser 
+     * sobrescritas
+     */
+    public function __construct()
+    {
+        $this->putRules = array_merge($this->postRules, $this->putRules);
+    }
+
+    /**
      * Retorna um objeto de acordo com seu ID
      *
      * @param integer $id

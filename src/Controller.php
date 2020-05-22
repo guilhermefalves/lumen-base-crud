@@ -59,9 +59,9 @@ class Controller extends LumenController
     public function show(int $id): JsonResponse
     {
         // Busca o objeto
-        $object = $this->model::find($id);
+        $data = $this->model::find($id);
 
-        if (!$object) {
+        if (!$data) {
             return $this->response(404);
         }
 
@@ -80,8 +80,8 @@ class Controller extends LumenController
         $result   = $this->model::paginate($pageSize)->toArray();
         
         // Recupero os dados e a paginação
-        $data       = Arr::pluck($result, 'data');
-        $pagination = Arr::except($result, 'data');
+        $data       = $result['data'];
+        $pagination = ($data) ? Arr::except($result, 'data') : null;
 
         $this->preIndex($data);
         return $this->response(200, compact(['data', 'pagination']));

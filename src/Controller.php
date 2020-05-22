@@ -47,7 +47,13 @@ class Controller extends LumenController
      */
     public function __construct()
     {
-        $this->putRules = array_merge($this->postRules, $this->putRules);
+        $postWithoutRequired = [];
+        foreach ($this->postRules as $field => $value) {
+            $value = str_replace(['|required', 'required|', 'required'], '', $value);
+            $postWithoutRequired[$field] = $value;
+        }
+
+        $this->putRules = array_merge($postWithoutRequired, $this->putRules);
     }
 
     /**

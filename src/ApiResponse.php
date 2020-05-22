@@ -106,11 +106,10 @@ trait APIResponse
     private function prepareStatusAndMessage(int $code, array $data, string $message): array
     {
         // Define se foi uma requisição bem sucedida ou um erro
-        $status = ($code >= 200 && $code <= 299) ? 'Sucesso' : 'Erro';
+        $status = $this->statusCodes[$code];
 
         // Tenta encontrar uma mensagem para o código
         $message = (!$message && isset($data['message'])) ? $data['message'] : $message;
-        $message = $message ? $message : $this->statusCodes[$code];
 
         return [$status, $message];
     }

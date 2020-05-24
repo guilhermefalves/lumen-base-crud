@@ -133,7 +133,10 @@ class Controller extends LumenController
         }
 
         // senão, chamo a função posStore e retorno uma resposta de API
-        $this->posStore($created);
+        $posStoreReturns = $this->posStore($created);
+        if ($posStoreReturns) {
+            return $posStoreReturns;
+        }
         return $this->response(201, ['id' => $created->id]);
     }
 
@@ -177,6 +180,10 @@ class Controller extends LumenController
 
         // senão, chamo a posUpdate e retorno
         $this->posUpdate($object);
+        $posUpdateReturns = $this->posUpdate($object);
+        if ($posUpdateReturns) {
+            return $posUpdateReturns;
+        }
         return $this->response(200);
     }
 

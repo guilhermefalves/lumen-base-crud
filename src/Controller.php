@@ -71,7 +71,11 @@ class Controller extends LumenController
             return $this->response(404);
         }
 
-        $this->preShow($data);
+        $preShowReturns = $this->preShow($data);
+        if ($preShowReturns) {
+            return $preShowReturns;
+        }
+
         return $this->response(200, compact(['data']));
     }
 
@@ -89,7 +93,11 @@ class Controller extends LumenController
         $data       = $result['data'];
         $pagination = ($data) ? Arr::except($result, 'data') : null;
 
-        $this->preIndex($data);
+        $preIndexReturns = $this->preIndex($data);
+        if ($preIndexReturns) {
+            return $preIndexReturns;
+        }
+
         return $this->response(200, compact(['data', 'pagination']));
     }
 

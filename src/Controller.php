@@ -204,7 +204,7 @@ class Controller extends LumenController
      * @param Model $data
      * @return void
      */
-    protected function preShow(&$data) {}
+    protected function preShow(Model &$data) {}
 
     /**
      * Executada antes de exibição de uma lista de objetos
